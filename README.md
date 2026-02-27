@@ -8,10 +8,10 @@ Lauro Mascarenhas, Vinicius N. A. Lula-Rocha, Marco A. S. Trindade.
 
 The project develops a unified algebraic framework for quantum classification and search algorithms based on:
 
-- Clifford algebras $ \mathrm{Cl}(2n) $
+- Clifford algebras $\mathrm{Cl}(2n)$
 - Spinorial representations
-- The group $ \mathrm{Spin}(2n) $
-- Bivector generators $ \Gamma_i \Gamma_j $
+- The group $\mathrm{Spin}(2n)$
+- Bivector generators $\Gamma_i\Gamma_j$
 
 The approach exploits intrinsic algebraic properties (anticommutation, orthogonality, chirality decomposition), avoiding ad hoc constructions in Hilbert space.
 
