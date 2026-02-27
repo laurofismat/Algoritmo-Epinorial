@@ -6,12 +6,12 @@ This repository contains the computational implementation of the algorithms pres
 **“Quantum classification and search algorithms using spinorial representations”**  
 Lauro Mascarenhas, Vinicius N. A. Lula-Rocha, Marco A. S. Trindade.
 
-The project develops a unified algebraic framework for quantum **classification** and **search** algorithms based on:
+The project develops a unified algebraic framework for quantum classification and search algorithms based on:
 
 - Clifford algebras $ \mathrm{Cl}(2n) $
 - Spinorial representations
-- The group \( \mathrm{Spin}(2n) \)
-- Bivector generators \( \Gamma_i \Gamma_j \)
+- The group $ \mathrm{Spin}(2n) $
+- Bivector generators $ \Gamma_i \Gamma_j $
 
 The approach exploits intrinsic algebraic properties (anticommutation, orthogonality, chirality decomposition), avoiding ad hoc constructions in Hilbert space.
 
@@ -23,26 +23,26 @@ The approach exploits intrinsic algebraic properties (anticommutation, orthogona
 
 The generators are implemented via tensor products of Pauli matrices:
 
-\[
+$$
 \Gamma_j = \sigma_3^{\otimes (j-1)} \otimes \sigma_1 \otimes I^{\otimes (n-j)}
-\]
+$$
 
-\[
+$$
 \Gamma_{n+j} = \sigma_3^{\otimes (j-1)} \otimes \sigma_2 \otimes I^{\otimes (n-j)}
-\]
+$$
 
 satisfying the Clifford relations:
 
-\[
+$$
 \{ \Gamma_a, \Gamma_b \} = 2 \delta_{ab} I
-\]
+$$
 
 Spin group elements are implemented as exponentials of bivectors:
 
-\[
+$$
 R_{i,j}(\theta) = \exp(\theta \Gamma_i \Gamma_j)
 = \cos(\theta) I + \sin(\theta) \Gamma_i \Gamma_j
-\]
+$$
 
 ---
 
@@ -52,32 +52,32 @@ Each class is associated with orthogonal spinorial states.
 
 Input state:
 
-\[
+$$
 |\psi\rangle = \cos\theta |\alpha\rangle + \sin\theta |\beta\rangle
-\]
+$$
 
 where:
 
-- \( |\alpha\rangle = |\Gamma_j\rangle \)
-- \( |\beta\rangle = \Gamma_i \Gamma_j |\Gamma_j\rangle \)
+- $|\alpha\rangle = |\Gamma_j\rangle$
+- $|\beta\rangle = \Gamma_i \Gamma_j |\Gamma_j\rangle$
 
 The observable used for classification is:
 
-\[
+$$
 O = \Gamma_j
-\]
+$$
 
 Decision rule:
 
-\[
+$$
 \text{Class A} \iff \langle \psi | O | \psi \rangle > 0
-\]
+$$
 
 For finite datasets not intersecting the decision boundary, the sample complexity is:
 
-\[
+$$
 \mathcal{O}(1)
-\]
+$$
 
 This algorithm processes quantum data directly without requiring state tomography.
 
@@ -87,38 +87,38 @@ This algorithm processes quantum data directly without requiring state tomograph
 
 Initial state:
 
-\[
+$$
 |\psi\rangle = \cos\theta |\alpha\rangle + \sin\theta |\beta\rangle
-\]
+$$
 
 Generalized Grover operator:
 
-\[
+$$
 G = (2|\psi\rangle\langle\psi| - I) O
-\]
+$$
 
-with \( O = \Gamma_j \).
+with $O = \Gamma_j$.
 
-After \( k \) iterations:
+After $k$ iterations:
 
-\[
+$$
 |\psi_k\rangle =
 \cos[(2k+1)\theta] |\alpha\rangle
 +
 \sin[(2k+1)\theta] |\beta\rangle
-\]
+$$
 
 Success probability:
 
-\[
+$$
 P_{\text{sol}}(k) = \sin^2[(2k+1)\theta]
-\]
+$$
 
 Optimal number of iterations:
 
-\[
+$$
 k = \left\lfloor \frac{\pi}{4\theta} - \frac{1}{2} \right\rceil
-\]
+$$
 
 This formulation generalizes Grover’s algorithm to arbitrary initial amplitude distributions.
 
